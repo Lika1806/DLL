@@ -2,21 +2,18 @@ import node
 class LinkedList:
     def __init__(self):
         self.head = None
-        self.tail = None
 
     def append(self, data):
-        new_node = node.Node(data, self.tail)
+        new_node = node.Node(data)
         if not self.head:
             self.head = new_node
             return
-        if not self.tail:
-            self.tail = new_node
-            self.tail.prev = self.head
-            self.head.next = self.tail
-            return
-        self.tail.next = new_node
-        self.tail = new_node
-        
+        e = self.head
+        while e.next:
+            e = e.next
+        e.next = new_node
+        new_node.prev = e
+
     def prepend(self, data):
         new_node = node.Node(data, None, self.head)
         if not self.head:
@@ -25,8 +22,6 @@ class LinkedList:
         self.head.prev = new_node
         new_node.next = self.head
         self.head = new_node
-        if not self.tail:
-            self.tail = self.head.next
         
     def find_data(self,target_data):
         e = self.head
