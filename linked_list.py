@@ -1,9 +1,12 @@
 import node
 class LinkedList:
+    '''class LnkedList represents a structure of Doubly Linked List (DLL)'''
     def __init__(self):
+        '''Initialize an empty doubly linked list.'''
         self.head = None
 
     def append(self, data):
+        '''Insert a node with the given data value at the end of the list.'''
         new_node = node.Node(data)
         if not self.head:
             self.head = new_node
@@ -15,6 +18,7 @@ class LinkedList:
         new_node.prev = e
 
     def prepend(self, data):
+        '''Insert a node with the given data value at the beginning of the list.'''
         new_node = node.Node(data, None, self.head)
         if not self.head:
             self.head = new_node
@@ -24,6 +28,7 @@ class LinkedList:
         self.head = new_node
         
     def find_data(self,target_data):
+        '''Finde a node containing target data, returns None if it doesn't exist.'''
         e = self.head
         while e:
             if e.data == target_data:
@@ -31,6 +36,7 @@ class LinkedList:
             e = e.next
         
     def insert_after(self, target_data,  data):
+        '''Insert a node with the given data value after the node containing target_data.'''
         target_node = self.find_data(target_data)
         if not target_node:
             raise ValueError ("Data doesn't exist")
@@ -42,6 +48,7 @@ class LinkedList:
         target_node.next = new_node
             
     def insert_before(self, target_data, data):
+        '''Insert a node with the given data value before the node containing target_data.'''
         target_node = self.find_data(target_data)
         if not target_node:
             raise ValueError ("Data doesn't exist")
@@ -53,6 +60,7 @@ class LinkedList:
         target_node.prev = new_node
 
     def delete(self, data):
+        '''Remove the node containing the given data value from the list.'''
         target_node = self.find_data(data)
         if not target_node:
             raise ValueError ("Data doesn't exist")
@@ -62,6 +70,7 @@ class LinkedList:
             target_node.next.prev = target_node.prev
 
     def display(self):
+        '''Display the elements of the doubly linked list.'''
         e = self.head
         if not e:
             print("The list is empty")
