@@ -1,4 +1,5 @@
 class Node:
+    '''class Node reperesents an element of linked list'''
     def __init__(self, data, prev_node=None, next_node=None):
         self.__data = data
         self.__prev = prev_node
