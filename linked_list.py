@@ -64,7 +64,7 @@ class LinkedList:
     def display(self):
         e = self.head
         if not e:
-            return -1
+            print("The list is empty")
         while e:
             print(e.data)
             e = e.next
