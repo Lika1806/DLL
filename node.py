@@ -5,20 +5,20 @@ class Node:
         self.prev = prev_node
         self.next = next_node
     
-    def get_next(self):
+    @property
+    def next(self):
         return self.__next
-    def get_prev(self):
+    @next.setter
+    def next(self, node):
+        if node and not isinstance(node, Node):
+            raise ValueError(f"Node {node} doesn't exist")
+        self.__next = node
+    @property
+    def prev(self):
         return self.__prev
-    def set_prev(self,value):
-        if isinstance(value, Node) or not value:
-            self.__prev = value
-            return 
-        else: raise ValueError(f"Node {value} doesn't exist")
-    def set_next(self,value):
-        if isinstance(value, Node) or not value:
-            self.__next = value
-            return
-        else: raise ValueError(f"Node {value} doesn't exist")
- 
-    prev = property(get_prev, set_prev)
-    next = property(get_next, set_next)
+    @prev.setter
+    def prev(self, node):
+        if node and not isinstance(node, Node):
+            raise ValueError(f"Node {node} doesn't exist")
+        self.__prev = node
+    
