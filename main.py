@@ -1,7 +1,8 @@
-import linked_list
+import node
+import doubly_linked_list
 
 def test():
-    my_list = linked_list.LinkedList()
+    my_list = doubly_linked_list.DoublyLinkedList()
     my_list.display()
     print(my_list.is_empty())
     my_list.append('Data 0')
@@ -18,6 +19,5 @@ def test():
 
 
 test()
-
 
 
