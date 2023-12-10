@@ -1,5 +1,5 @@
 import node
-class LinkedList:
+class DoublyLinkedList:
     '''class LnkedList represents a structure of Doubly Linked List (DLL)'''
     def __init__(self):
         '''Initialize an empty doubly linked list.'''
@@ -28,7 +28,7 @@ class LinkedList:
         self.head = new_node
         
     def find_data(self,target_data):
-        '''Finde a node containing target data, returns None if it doesn't exist.'''
+        '''Findes a node containing target data, returns None if it doesn't exist.'''
         e = self.head
         while e:
             if e.data == target_data:
